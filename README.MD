@@ -9,10 +9,95 @@ Este proyecto simula un sistema para gestionar múltiples cabinas telefónicas. 
 * **Práctica:** Consolidar conocimientos en diseño de clases y algoritmos.
 
 ## Diagrama de Clases
-[Image of class diagram]
+## Clases Principales
 
-*Puedes reemplazar "[Image of class diagram]" con la URL de tu diagrama, o incrustarla directamente si estás usando GitHub Pages.*
+### `Cabina`
+```plaintext
++-------------------+
+| Cabina            |
++-------------------+
+| - id: Int          |
+| - llamadas: List<Llamada> |
++-------------------+
+| + registrarLlamada(tipo: TipoLlamada, duracion: Int) |
+| + obtenerNumeroLlamadas(): Int |
+| + obtenerDuracionTotal(): Int |
+| + obtenerCostoTotal(): Int |
+| + obtenerDetalle(): String |
+| + reiniciarCabina() |
++-------------------+ 
+```
+### `LLamada`
+```plaintext
++--------------------+
+| Llamada            |
++--------------------+
+| - tipo: TipoLlamada |
+| - duracion: Int     |
++--------------------+
+| + calcularCosto(): Int |
++--------------------+
+```
+### `TipoLLamada (Enum)` 
+```plaintext
++--------------------+
+| TipoLlamada        |
++--------------------+
+| + LOCAL            |
+| + LARGA_DISTANCIA  |
+| + CELULAR          |
++--------------------+
+```
+### `Empresa`
+```plaintext
++-------------------+
+| Empresa           |
++-------------------+
+| - cabinas: List<Cabina> |
++-------------------+
+| + agregarCabina(cabina: Cabina) |
+| + mostrarConsolidado(): String |
+| + reiniciarTodasLasCabinas() |
++-------------------+
+```
+### Relaciones entre Clases
+```plaintext
 
++---------------------------------+       +------------------------------------------------------+
+|            Empresa           |          * |                      Cabina                        |
++---------------------------------+       +------------------------------------------------------+
+| - cabinas: List<Cabina>         |       | - id: Int                                            |
+| + agregarCabina(cabina: Cabina) |       | - llamadas: List<Llamada>                            |
+| + mostrarConsolidado(): String  |       | + registrarLlamada(tipo: TipoLlamada, duracion: Int) |
+| + reiniciarTodasLasCabinas()    |       | + obtenerNumeroLlamadas(): Int                       |
++---------------------------------+       +------------------------------------------------------+
+                         | + obtenerDuracionTotal(): Int |
+                         | + obtenerCostoTotal(): Int    |
+                         | + obtenerDetalle(): String    |
+                         | + reiniciarCabina()           |
+                         +-------------------------------+
+                                          ^
+                                          |
+                                          |
+                              +-----------------------+
+                              | Llamada               |
+                              +-----------------------+
+                              | - tipo: TipoLlamada   |
+                              | - duracion: Int       |
+                              | + calcularCosto(): Int|
+                              +-----------------------+
+                                          ^
+                                          |
+                                          |
+                                +--------------------+
+                                |   TipoLlamada      |
+                                +--------------------+
+                                | LOCAL              |
+                                | LARGA_DISTANCIA    |
+                                | CELULAR            |
+                                +--------------------+
+
+```
 ## Características Principales
 * **Registro de llamadas:** Permite registrar llamadas de diferentes tipos (local, larga distancia, celular) con su duración.
 * **Cálculo de costos:** Calcula el costo total de cada llamada y de todas las llamadas realizadas.
