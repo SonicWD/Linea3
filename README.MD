@@ -9,34 +9,35 @@ Este proyecto simula un sistema para gestionar múltiples cabinas telefónicas. 
 * **Práctica:** Consolidar conocimientos en diseño de clases y algoritmos.
 
 ## Diagrama de Clases
-## Clases Principales
+Se presenta un resumen de las clases utilizadas
+### Clases Principales
 
 ### `Cabina`
 ```plaintext
-+-------------------+
-| Cabina            |
-+-------------------+
-| - id: Int          |
-| - llamadas: List<Llamada> |
-+-------------------+
++------------------------------------------------------+
+|                         Cabina                       |
++------------------------------------------------------+
+| - id: Int                                            |
+| - llamadas: List<Llamada>                            |
++------------------------------------------------------+
 | + registrarLlamada(tipo: TipoLlamada, duracion: Int) |
-| + obtenerNumeroLlamadas(): Int |
-| + obtenerDuracionTotal(): Int |
-| + obtenerCostoTotal(): Int |
-| + obtenerDetalle(): String |
-| + reiniciarCabina() |
-+-------------------+ 
+| + obtenerNumeroLlamadas(): Int                       |
+| + obtenerDuracionTotal(): Int                        |
+| + obtenerCostoTotal(): Int                           |
+| + obtenerDetalle(): String                           |
+| + reiniciarCabina()                                  |
++------------------------------------------------------+ 
 ```
 ### `LLamada`
 ```plaintext
-+--------------------+
-| Llamada            |
-+--------------------+
-| - tipo: TipoLlamada |
-| - duracion: Int     |
-+--------------------+
++------------------------+
+|        Llamad          |
++------------------------+
+| - tipo: TipoLlamada    |
+| - duracion: Int        |
++------------------------+
 | + calcularCosto(): Int |
-+--------------------+
++------------------------+
 ```
 ### `TipoLLamada (Enum)` 
 ```plaintext
@@ -50,15 +51,25 @@ Este proyecto simula un sistema para gestionar múltiples cabinas telefónicas. 
 ```
 ### `Empresa`
 ```plaintext
-+-------------------+
-| Empresa           |
-+-------------------+
-| - cabinas: List<Cabina> |
-+-------------------+
-| + agregarCabina(cabina: Cabina) |
-| + mostrarConsolidado(): String |
-| + reiniciarTodasLasCabinas() |
-+-------------------+
++-----------------------------------+
+|             Empresa               |
++-----------------------------------+
+| - cabinas: List<Cabina>           |
++-----------------------------------+
+| + agregarCabina(cabina: Cabina)   |
+| + mostrarConsolidado(): String    |
+| + reiniciarTodasLasCabinas()      |
++-----------------------------------+
+```
+### `TipoLlamada`
+```plaintext
+ +--------------------+
+ |   TipoLlamada      |
+ +--------------------+
+ | LOCAL              |
+ | LARGA_DISTANCIA    |
+ | CELULAR            |
+ +--------------------+
 ```
 ### Relaciones entre Clases
 ```plaintext
