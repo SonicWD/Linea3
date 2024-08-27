@@ -206,5 +206,5 @@ Para ejecutar las pruebas, utiliza el siguiente comando:
 ```
 ## Nota para el profe
 
-Disculpa la demora en el proyecto, no sabia hacer pruebas unitarias, pero ya funciona 
+Disculpa la demora en el proyecto, no sabia hacer pruebas unitarias, pero ya se 👍🏻
 
