@@ -14,14 +14,13 @@ class Empresa {
         val costoPromedioPorMinuto = if (duracionTotal > 0) costoTotal / duracionTotal else 0
 
         return """
-        Consolidado total:
-        Número total de llamadas: $numeroTotalLlamadas
-        Duración total de llamadas: $duracionTotal minutos
-        Costo total: $costoTotal pesos
-        Costo promedio por minuto: $costoPromedioPorMinuto pesos/minuto
-    """.trimIndent()
+            Consolidado total:
+            Número total de llamadas: $numeroTotalLlamadas
+            Duración total de llamadas: $duracionTotal minutos
+            Costo total: $costoTotal pesos
+            Costo promedio por minuto: $costoPromedioPorMinuto pesos/minuto
+        """.trimIndent()
     }
-
 
     fun reiniciarTodasLasCabinas() {
         cabinas.forEach { it.reiniciarCabina() }

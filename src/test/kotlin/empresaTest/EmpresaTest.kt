@@ -58,9 +58,10 @@ class EmpresaTest {
         // Obtenemos el consolidado de la empresa y verificamos la información agregada.
         val consolidado = empresa.mostrarConsolidado()
 
-        assertTrue(consolidado.contains("Número Total de Llamadas: 2"))
-        assertTrue(consolidado.contains("Duración Total de Llamadas: 30 minutos"))
-        assertTrue(consolidado.contains("Costo Total de la Línea: 3500 pesos"))
+        assertTrue(consolidado.contains("Número total de llamadas: 2"))
+        assertTrue(consolidado.contains("Duración total de llamadas: 30 minutos"))
+        assertTrue(consolidado.contains("Costo total: 3500 pesos"))
+        assertTrue(consolidado.contains("Costo promedio por minuto: 116 pesos/minuto"))
     }
 
     @Test
